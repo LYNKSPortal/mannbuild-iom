@@ -1,0 +1,307 @@
+
+> mannbuild@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.162:3000
+✓ Ready in 142ms
+
+⨯ ./src/components/Header.tsx:130:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m128 |[0m     </header>
+  [90m129 |[0m   );
+[31m[1m>[0m [90m130 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m131 |[0m
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/Header.tsx
+    ./src/app/layout.tsx
+
+
+ GET / 500 in 94ms (next.js: 52ms, application-code: 43ms)
+⨯ ./src/components/Header.tsx:130:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m128 |[0m     </header>
+  [90m129 |[0m   );
+[31m[1m>[0m [90m130 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m131 |[0m
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/Header.tsx
+    ./src/app/layout.tsx
+
+
+ HEAD / 500 in 13ms (next.js: 7ms, application-code: 6ms)
+⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/Header'
+  [90m2 |[0m [36mimport[0m { [33mMontserrat[0m } [36mfrom[0m [32m"next/font/google"[0m;
+  [90m3 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/Header"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m [36mfrom[0m [32m"@/components/Footer"[0m;
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m montserrat = [33mMontserrat[0m({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/Header'
+  [90m2 |[0m [36mimport[0m { [33mMontserrat[0m } [36mfrom[0m [32m"next/font/google"[0m;
+  [90m3 |[0m [36mimport[0m [32m"./globals.css"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/Header"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m [36mfrom[0m [32m"@/components/Footer"[0m;
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m montserrat = [33mMontserrat[0m({
+
+Import map: aliased to relative './src/components/Header' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 350ms
+ HEAD / 200 in 127ms (next.js: 68ms, application-code: 58ms)
+ GET / 200 in 24ms (next.js: 2ms, application-code: 21ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 38ms (next.js: 4ms, application-code: 33ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 19ms (next.js: 1145µs, application-code: 18ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 39ms (next.js: 3ms, application-code: 35ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 10ms (next.js: 3ms, application-code: 7ms)
+ GET / 200 in 7ms (next.js: 1137µs, application-code: 6ms)
+ GET / 200 in 33ms (next.js: 3ms, application-code: 30ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 50ms
+✓ Compiled in 67ms
+✓ Compiled in 50ms
+✓ Compiled in 26ms
+✓ Compiled in 44ms
+ GET / 200 in 38ms (next.js: 6ms, application-code: 32ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 55ms
+ GET / 200 in 30ms (next.js: 3ms, application-code: 27ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 26ms (next.js: 4ms, application-code: 22ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 43ms
+ GET / 200 in 41ms (next.js: 7ms, application-code: 34ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 23ms
+ GET / 200 in 38ms (next.js: 6ms, application-code: 33ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 26ms
+ GET / 200 in 39ms (next.js: 4ms, application-code: 35ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 32ms (next.js: 3ms, application-code: 29ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 56ms
+✓ Compiled in 47ms
+ GET / 200 in 33ms (next.js: 5ms, application-code: 28ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 41ms
+✓ Compiled in 27ms
+ GET / 200 in 38ms (next.js: 5ms, application-code: 33ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 30ms (next.js: 3ms, application-code: 27ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 24ms
+ GET / 200 in 19ms (next.js: 1846µs, application-code: 17ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 25ms
+✓ Compiled in 45ms
+✓ Compiled in 48ms
+✓ Compiled in 57ms
+ GET / 200 in 19ms (next.js: 1638µs, application-code: 18ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 32ms
+ GET / 200 in 35ms (next.js: 5ms, application-code: 30ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 25ms
+ GET / 200 in 21ms (next.js: 3ms, application-code: 18ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /about 200 in 34ms (next.js: 23ms, application-code: 11ms)
+ GET /services 200 in 35ms (next.js: 25ms, application-code: 10ms)
+ GET /projects 200 in 34ms (next.js: 25ms, application-code: 9ms)
+[browser] Image with src "/isleofman-wideshot.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /finance 200 in 26ms (next.js: 17ms, application-code: 9ms)
+ GET /contact 200 in 35ms (next.js: 26ms, application-code: 9ms)
+ GET /contact 200 in 38ms (next.js: 4ms, application-code: 34ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 46ms
+✓ Compiled in 167ms
+ GET /contact 200 in 105ms (next.js: 31ms, application-code: 74ms)
+ GET /contact 200 in 70ms (next.js: 50ms, application-code: 20ms)
+ GET /contact 200 in 11ms (next.js: 1243µs, application-code: 10ms)
+ GET /contact 200 in 75ms (next.js: 1246µs, application-code: 74ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 33ms
+ GET / 200 in 28ms (next.js: 18ms, application-code: 11ms)
+ GET /about 200 in 18ms (next.js: 8ms, application-code: 11ms)
+ GET /services 200 in 24ms (next.js: 9ms, application-code: 15ms)
+ GET /projects 200 in 18ms (next.js: 8ms, application-code: 11ms)
+[browser] Image with src "/isleofman-wideshot.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /finance 200 in 22ms (next.js: 9ms, application-code: 12ms)
+ GET /merch 200 in 28ms (next.js: 19ms, application-code: 9ms)
+[browser] Image with src "/merch/Jumper.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/Beanie.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/white-top-front.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 16ms (next.js: 4ms, application-code: 12ms)
+✓ Compiled in 48ms
+ GET / 200 in 25ms (next.js: 2ms, application-code: 22ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /about 200 in 7ms (next.js: 2ms, application-code: 5ms)
+ GET /services 200 in 17ms (next.js: 5ms, application-code: 12ms)
+ GET /projects 200 in 9ms (next.js: 1734µs, application-code: 8ms)
+[browser] Image with src "/isleofman-wideshot.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /finance 200 in 17ms (next.js: 5ms, application-code: 12ms)
+ GET /merch 200 in 15ms (next.js: 6ms, application-code: 9ms)
+[browser] Image with src "/merch/Beanie.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/Jumper.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/white-top-front.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 14ms (next.js: 3ms, application-code: 11ms)
+ GET /contact 200 in 18ms (next.js: 5ms, application-code: 14ms)
+ GET / 200 in 12ms (next.js: 3ms, application-code: 9ms)
+✓ Compiled in 56ms
+ GET /about 200 in 21ms (next.js: 6ms, application-code: 15ms)
+ GET /about 200 in 13ms (next.js: 3ms, application-code: 10ms)
+ GET /services 200 in 17ms (next.js: 4ms, application-code: 13ms)
+ GET /services 200 in 19ms (next.js: 4ms, application-code: 15ms)
+ GET /projects 200 in 20ms (next.js: 6ms, application-code: 15ms)
+ GET /projects 200 in 17ms (next.js: 3ms, application-code: 14ms)
+ GET /finance 200 in 9ms (next.js: 1876µs, application-code: 7ms)
+ GET /merch 200 in 14ms (next.js: 4ms, application-code: 10ms)
+[browser] Image with src "/merch/white-top-back.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/Jumper-Back.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 18ms (next.js: 5ms, application-code: 14ms)
+ GET / 200 in 9ms (next.js: 4ms, application-code: 5ms)
+ GET / 200 in 8ms (next.js: 698µs, application-code: 7ms)
+ GET / 200 in 38ms (next.js: 3ms, application-code: 34ms)
+[browser] Image with src "/branding/Asset 22.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 30ms
+ GET / 200 in 10ms (next.js: 5ms, application-code: 5ms)
+ GET / 200 in 13ms (next.js: 1589µs, application-code: 11ms)
+✓ Compiled in 47ms
+ GET / 200 in 18ms (next.js: 1487µs, application-code: 16ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 34ms (next.js: 3ms, application-code: 31ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 126ms
+ GET / 200 in 39ms (next.js: 5ms, application-code: 34ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /about 200 in 21ms (next.js: 7ms, application-code: 14ms)
+ GET /services 200 in 18ms (next.js: 7ms, application-code: 11ms)
+ GET /projects 200 in 16ms (next.js: 7ms, application-code: 9ms)
+[browser] Image with src "/isleofman-wideshot.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /finance 200 in 16ms (next.js: 6ms, application-code: 10ms)
+ GET /merch 200 in 15ms (next.js: 7ms, application-code: 8ms)
+[browser] Image with src "/merch/Jumper.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/white-top-front.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/Beanie.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /contact 200 in 15ms (next.js: 7ms, application-code: 8ms)
+ GET / 200 in 11ms (next.js: 3ms, application-code: 8ms)
+ GET / 200 in 19ms (next.js: 1086µs, application-code: 18ms)
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 30ms
+ GET / 200 in 19ms (next.js: 1570µs, application-code: 18ms)
+ GET / 200 in 33ms (next.js: 3ms, application-code: 30ms)
+ GET / 200 in 5ms (next.js: 1649µs, application-code: 4ms)
+ GET / 200 in 11ms (next.js: 2ms, application-code: 9ms)
+ GET /about 200 in 19ms (next.js: 5ms, application-code: 14ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /about 200 in 18ms (next.js: 3ms, application-code: 15ms)
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /services 200 in 19ms (next.js: 7ms, application-code: 12ms)
+ GET /finance 200 in 18ms (next.js: 5ms, application-code: 14ms)
+ GET /merch 200 in 19ms (next.js: 6ms, application-code: 12ms)
+[browser] Image with src "/merch/Beanie.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/Jumper.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/merch/white-top-front.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET / 200 in 13ms (next.js: 3ms, application-code: 10ms)
+ GET / 200 in 141ms (next.js: 120ms, application-code: 21ms)
+ GET / 200 in 18ms (next.js: 1007µs, application-code: 17ms)
+ GET / 200 in 21ms (next.js: 793µs, application-code: 20ms)
+ GET / 200 in 28ms (next.js: 782µs, application-code: 27ms)
+ GET / 200 in 30ms (next.js: 646µs, application-code: 30ms)
+ GET / 200 in 27ms (next.js: 1144µs, application-code: 26ms)
+ GET / 200 in 28ms (next.js: 1569µs, application-code: 27ms)
+ GET / 200 in 28ms (next.js: 1203µs, application-code: 26ms)
+ GET / 200 in 29ms (next.js: 995µs, application-code: 28ms)
+ GET / 200 in 29ms (next.js: 1002µs, application-code: 28ms)
+ GET / 200 in 30ms (next.js: 1422µs, application-code: 28ms)
+ GET / 200 in 27ms (next.js: 1063µs, application-code: 26ms)
+ GET / 200 in 24ms (next.js: 1469µs, application-code: 23ms)
+ GET / 200 in 25ms (next.js: 1069µs, application-code: 24ms)
+ GET / 200 in 26ms (next.js: 1074µs, application-code: 25ms)
+ GET / 200 in 27ms (next.js: 1206µs, application-code: 25ms)
+ GET / 200 in 26ms (next.js: 1129µs, application-code: 25ms)
+ GET / 200 in 25ms (next.js: 1319µs, application-code: 24ms)
+ GET / 200 in 17ms (next.js: 932µs, application-code: 16ms)
+ GET / 200 in 9ms (next.js: 957µs, application-code: 8ms)
+✓ Compiled in 127ms
+ GET / 200 in 12ms (next.js: 729µs, application-code: 11ms)
+ GET / 200 in 20ms (next.js: 749µs, application-code: 19ms)
+ GET / 200 in 21ms (next.js: 786µs, application-code: 21ms)
+ GET / 200 in 15ms (next.js: 714µs, application-code: 14ms)
+ GET / 200 in 60ms (next.js: 32ms, application-code: 28ms)
+ GET / 200 in 16ms (next.js: 597µs, application-code: 15ms)
+ GET / 200 in 15ms (next.js: 543µs, application-code: 15ms)
+ GET / 200 in 16ms (next.js: 526µs, application-code: 15ms)
+ GET / 200 in 17ms (next.js: 498µs, application-code: 17ms)
+ GET / 200 in 19ms (next.js: 496µs, application-code: 18ms)
+ GET / 200 in 21ms (next.js: 767µs, application-code: 20ms)
+ GET / 200 in 21ms (next.js: 766µs, application-code: 20ms)
+ GET / 200 in 16ms (next.js: 903µs, application-code: 15ms)
+ GET / 200 in 20ms (next.js: 692µs, application-code: 19ms)
+ GET / 200 in 18ms (next.js: 1032µs, application-code: 17ms)
+ GET / 200 in 17ms (next.js: 645µs, application-code: 17ms)
+ GET / 200 in 21ms (next.js: 742µs, application-code: 20ms)
+ GET / 200 in 23ms (next.js: 563µs, application-code: 22ms)
+ GET / 200 in 30ms (next.js: 721µs, application-code: 29ms)
+ GET / 200 in 27ms (next.js: 794µs, application-code: 26ms)
+ GET / 200 in 20ms (next.js: 1016µs, application-code: 19ms)
+ GET / 200 in 7ms (next.js: 857µs, application-code: 6ms)
+ GET / 200 in 70ms (next.js: 3ms, application-code: 68ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /privacy 200 in 267ms (next.js: 260ms, application-code: 7ms)
+ GET /privacy 200 in 38ms (next.js: 3ms, application-code: 36ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET / 200 in 14ms (next.js: 2ms, application-code: 12ms)
+[browser] Image with src "/branding/Asset 27.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /terms 200 in 191ms (next.js: 184ms, application-code: 7ms)
+✓ Compiled in 21ms
+✓ Compiled in 61ms
+ GET /privacy 200 in 20ms (next.js: 5ms, application-code: 15ms)
+ GET / 200 in 13ms (next.js: 3ms, application-code: 10ms)

@@ -107,7 +107,7 @@ function WhyChooseSection() {
           <div>
             <h2 
               ref={titleRef}
-              className={`text-4xl font-bold text-gray-900 mb-6 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+              className={`text-4xl font-bold text-gray-900 mb-6 text-center lg:text-left animate-on-scroll ${titleVisible ? 'animated' : ''}`}
             >
               Why Choose MannBuild?
             </h2>

@@ -14,8 +14,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#00452a] text-white py-12">
       <div className="px-8">
-        {/* Four Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 gap-[50px] md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-8 mb-8">
           {/* Column 1: Logo */}
           <div 
             ref={logoRef}

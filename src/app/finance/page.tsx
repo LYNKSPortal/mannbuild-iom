@@ -153,12 +153,12 @@ export default function Finance() {
         {/* Finance Calculator */}
         <div 
           ref={calculatorRef}
-          className={`mt-12 bg-white p-8 rounded-lg shadow-sm animate-on-scroll animate-scroll-delay-600 ${calculatorVisible ? 'animated' : ''}`}
+          className={`mt-12 bg-white p-4 lg:p-8 rounded-lg shadow-sm animate-on-scroll animate-scroll-delay-600 ${calculatorVisible ? 'animated' : ''}`}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Conister Bank Loan Calculator</h2>
           <p className="body-text text-gray-600 mb-8 text-center">Estimate your monthly construction loan payments through Conister Bank</p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
             {/* Calculator Form */}
             <div className="space-y-6 h-full">
               <div>
@@ -217,8 +217,8 @@ export default function Finance() {
                 <p className="text-sm text-gray-500 mt-2">Choose your preferred repayment period</p>
               </div>
 
-              {/* Additional Information Section */}
-              <div className="bg-[#00452a]/5 p-6 rounded-lg border border-[#00452a]/20 flex-grow">
+              {/* Quick Tips & Information - Desktop Only */}
+              <div className="bg-[#00452a]/5 p-6 rounded-lg border border-[#00452a]/20 flex-grow hidden lg:block">
                 <h4 className="font-semibold text-gray-800 mb-4 flex items-center">
                   <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
@@ -290,7 +290,7 @@ export default function Finance() {
             </div>
 
             {/* Results */}
-            <div className="bg-gray-50 p-8 rounded-lg">
+            <div className="bg-gray-50 p-2 lg:p-8 rounded-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
                 <svg className="w-6 h-6 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
@@ -301,19 +301,15 @@ export default function Finance() {
               
               {monthlyPayment ? (
                 <div className="space-y-6">
-                  {/* Main Monthly Payment Highlight */}
-                  <div className="bg-gradient-to-r from-[#00452a] to-[#005634] p-6 rounded-lg text-white">
+                  <div className="bg-gradient-to-r from-[#00452a] to-[#005634] p-4 lg:p-6 rounded-lg text-white">
                     <div className="text-center">
                       <p className="text-sm uppercase tracking-wide mb-2 opacity-90">Monthly Payment</p>
-                      <p className="text-4xl font-bold mb-1">{formatCurrency(monthlyPayment)}</p>
+                      <p className="text-3xl lg:text-4xl font-bold mb-1">{formatCurrency(monthlyPayment)}</p>
                       <p className="text-sm opacity-80">For {loanTerm} years at 7% APR</p>
                     </div>
                   </div>
-                  
-                  {/* Detailed Breakdown */}
-                  <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
-                    <h4 className="font-semibold text-gray-800 mb-4 text-lg">Loan Details</h4>
-                    
+
+                  <div className="bg-white p-4 lg:p-6 rounded-lg border border-gray-200">
                     <div className="flex justify-between items-center pb-3 border-b border-gray-100">
                       <span className="text-gray-600 flex items-center">
                         <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -361,7 +357,7 @@ export default function Finance() {
                     </div>
                   </div>
 
-                  {/* Additional Information */}
+                  {/* Important Information */}
                   <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                     <div className="flex items-start">
                       <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -373,6 +369,77 @@ export default function Finance() {
                           This is an estimate based on the information provided. Actual rates and terms may vary based on your credit profile and project specifics.
                         </p>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Tips & Information */}
+                  <div className="bg-[#00452a]/5 p-6 rounded-lg border border-[#00452a]/20 lg:hidden">
+                    <h4 className="font-semibold text-gray-800 mb-4 flex items-center">
+                      <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                      Quick Tips & Information
+                    </h4>
+                    <ul className="space-y-3 text-sm text-gray-600 mb-4">
+                      <li className="flex items-start">
+                        <svg className="w-4 h-4 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                          <strong>Longer terms</strong> mean lower monthly payments but more total interest over time
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="w-4 h-4 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                          <strong>Consider your budget</strong> when choosing loan amount to ensure comfortable payments
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="w-4 h-4 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                          <strong>MannBuild</strong> can help connect you with Conister Bank for your project financing needs
+                        </div>
+                      </li>
+                    </ul>
+                    
+                    <div className="border-t border-[#00452a]/20 pt-4 mt-4">
+                      <h5 className="font-semibold text-gray-800 mb-2 flex items-center">
+                        <svg className="w-4 h-4 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        Why Choose Conister Bank Through MannBuild?
+                      </h5>
+                      <ul className="space-y-2 text-sm text-gray-600">
+                        <li className="flex items-start">
+                          <svg className="w-3 h-3 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Local Isle of Man bank with competitive rates
+                        </li>
+                        <li className="flex items-start">
+                          <svg className="w-3 h-3 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Quick approval process
+                        </li>
+                        <li className="flex items-start">
+                          <svg className="w-3 h-3 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Flexible terms tailored to your project
+                        </li>
+                        <li className="flex items-start">
+                          <svg className="w-3 h-3 text-[#00452a] mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          MannBuild helps streamline the application process
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -396,7 +463,7 @@ export default function Finance() {
         >
           <h2 className="text-2xl font-semibold mb-4">Ready to Discuss Financing?</h2>
           <p className="body-text mb-6">Contact MannBuild to connect with Conister Bank and explore financing options for your project.</p>
-          <button className="bg-white text-[#00452a] px-6 -py-3 body-text font-medium uppercase hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-[#00452a] px-6 py-3 body-text font-medium uppercase hover:bg-gray-100 transition-colors">
             Get Quote
           </button>
         </div>

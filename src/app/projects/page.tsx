@@ -118,14 +118,15 @@ export default function Projects() {
                     </svg>
                   </div>
                 )}
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
+                {/* Status Badge on Image */}
+                <div className="absolute top-3 right-3">
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(project.status)}`}>
                     {project.status}
                   </span>
                 </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                 <p className="body-text text-[#00452a] font-medium mb-2">{project.category}</p>
                 <p className="body-text text-gray-600">{project.description}</p>
               </div>

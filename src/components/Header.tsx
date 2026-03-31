@@ -54,7 +54,7 @@ export default function Header() {
             {/* Desktop Menu */}
             <div ref={navRef} className={`hidden 2xl:flex items-center animate-on-scroll animate-scroll-delay-100 ${navVisible ? 'animated' : ''}`}>
               <nav className="flex items-center space-x-8">
-                {navLinks.map((link, index) => (
+                {navLinks.filter(link => link.label !== 'Home').map((link, index) => (
                   <Link 
                     key={link.href} 
                     href={link.href} 

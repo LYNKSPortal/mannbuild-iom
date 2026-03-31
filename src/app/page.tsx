@@ -200,7 +200,7 @@ function HeroSection() {
   const [buttonsRef, buttonsVisible] = useIntersectionObserver();
 
   return (
-    <section className="relative text-white py-72">
+    <section className="relative text-white py-32 lg:py-72">
       <div className="absolute inset-0">
         <Image
           src="/isleofman-wideshot-van.jpg"

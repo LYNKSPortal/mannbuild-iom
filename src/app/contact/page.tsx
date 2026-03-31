@@ -28,8 +28,9 @@ export default function GetQuote() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    alert('Thank you for your quote request! We will contact you soon. (Form submission disabled for now)');
     console.log('Form submitted:', formData);
-    // Handle form submission here
+    // Form submission disabled - no actual submission will occur
   };
 
   return (

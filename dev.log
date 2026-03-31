@@ -364,3 +364,8 @@ Incoming: [10007, 7, 10]
 ✓ Compiled in 115ms
 ✓ Compiled in 54ms
 ✓ Compiled in 52ms
+ GET / 200 in 29ms (next.js: 5ms, application-code: 24ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 109ms
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /about 200 in 33ms (next.js: 19ms, application-code: 14ms)

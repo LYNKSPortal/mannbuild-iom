@@ -305,3 +305,62 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 ✓ Compiled in 61ms
  GET /privacy 200 in 20ms (next.js: 5ms, application-code: 15ms)
  GET / 200 in 13ms (next.js: 3ms, application-code: 10ms)
+ GET / 200 in 27ms (next.js: 1873µs, application-code: 25ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /finance 200 in 23ms (next.js: 14ms, application-code: 9ms)
+✓ Compiled in 135ms
+✓ Compiled in 116ms
+ GET /finance 200 in 25ms (next.js: 2ms, application-code: 23ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Uncaught ReferenceError: React is not defined
+    at Finance (src/app/finance/page.tsx:13:3)
+    at Set.forEach (<anonymous>)
+  11 |
+  12 |   // Calculate initial payment on component mount
+> 13 |   React.useEffect(() => {
+     |   ^
+  14 |     calculateLoan();
+  15 |   }, []);
+  16 |
+✓ Compiled in 83ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /finance 200 in 24ms (next.js: 1122µs, application-code: 23ms)
+✓ Compiled in 98ms
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 91ms
+✓ Compiled in 108ms
+[browser] The final argument passed to useEffect changed size between renders. The order and size of this array must remain constant.
+
+Previous: []
+Incoming: [10007, 7, 10] 
+    at Finance (src/app/finance/page.tsx:32:12)
+    at Set.forEach (<anonymous>)
+  30 |
+  31 |   // Calculate payment whenever values change
+> 32 |   useEffect(() => {
+     |            ^
+  33 |     calculateLoan();
+  34 |   }, [loanAmount, interestRate, loanTerm]);
+  35 | (src/app/finance/page.tsx:32:12)
+ GET /finance 200 in 33ms (next.js: 4ms, application-code: 29ms)
+[browser] Image with src "/branding/Asset 27.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/powered-by-lynks.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+✓ Compiled in 85ms
+✓ Compiled in 111ms
+✓ Compiled in 99ms
+✓ Compiled in 96ms
+✓ Compiled in 121ms
+✓ Compiled in 54ms
+✓ Compiled in 104ms
+✓ Compiled in 100ms
+✓ Compiled in 122ms
+✓ Compiled in 135ms
+✓ Compiled in 105ms
+✓ Compiled in 105ms
+✓ Compiled in 98ms
+✓ Compiled in 115ms
+✓ Compiled in 54ms
+✓ Compiled in 52ms

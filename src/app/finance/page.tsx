@@ -1,12 +1,21 @@
 'use client';
 
 import { useState } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function Finance() {
   const [loanAmount, setLoanAmount] = useState('250000');
-  const [interestRate, setInterestRate] = useState('4.5');
-  const [loanTerm, setLoanTerm] = useState('25');
+  const [interestRate, setInterestRate] = useState('7');
+  const [loanTerm, setLoanTerm] = useState('5');
   const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
+
+  const [titleRef, titleVisible] = useIntersectionObserver();
+  const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [constructionRef, constructionVisible] = useIntersectionObserver();
+  const [paymentRef, paymentVisible] = useIntersectionObserver();
+  const [partnerRef, partnerVisible] = useIntersectionObserver();
+  const [calculatorRef, calculatorVisible] = useIntersectionObserver();
+  const [ctaRef, ctaVisible] = useIntersectionObserver();
 
   const calculateLoan = () => {
     const principal = parseFloat(loanAmount);
@@ -31,31 +40,42 @@ export default function Finance() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Finance Options</h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <h1 
+          ref={titleRef}
+          className={`text-4xl font-bold text-gray-900 mb-8 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+        >
+          Finance Options
+        </h1>
+        <p 
+          ref={descriptionRef}
+          className={`body-text text-gray-600 mb-12 animate-on-scroll animate-scroll-delay-200 ${descriptionVisible ? 'animated' : ''}`}
+        >
           Flexible financing solutions to help make your construction project a reality.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div 
+            ref={constructionRef}
+            className={`bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-300 ${constructionVisible ? 'animated' : ''}`}
+          >
             <h2 className="text-2xl font-semibold text-[#00452a] mb-4">Construction Loans</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="body-text text-gray-600 mb-6">
               Competitive construction loans with flexible terms to fund your building project from start to finish.
             </p>
             <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Competitive interest rates
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Flexible repayment terms
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -64,25 +84,28 @@ export default function Finance() {
             </ul>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div 
+            ref={paymentRef}
+            className={`bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-400 ${paymentVisible ? 'animated' : ''}`}
+          >
             <h2 className="text-2xl font-semibold text-[#00452a] mb-4">Payment Plans</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="body-text text-gray-600 mb-6">
               Structured payment plans that align with project milestones and your cash flow requirements.
             </p>
             <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Milestone-based payments
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Customized schedules
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -91,25 +114,28 @@ export default function Finance() {
             </ul>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div 
+            ref={partnerRef}
+            className={`bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-500 ${partnerVisible ? 'animated' : ''}`}
+          >
             <h2 className="text-2xl font-semibold text-[#00452a] mb-4">Partner Lenders</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="body-text text-gray-600 mb-6">
               Access to our network of trusted financial partners offering specialized construction financing.
             </p>
             <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Pre-approved lenders
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Exclusive rates
               </li>
-              <li className="flex items-center text-gray-700">
+              <li className="flex items-center body-text text-gray-700">
                 <svg className="w-5 h-5 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -120,15 +146,18 @@ export default function Finance() {
         </div>
 
         {/* Finance Calculator */}
-        <div className="mt-12 bg-white p-8 rounded-lg shadow-sm">
+        <div 
+          ref={calculatorRef}
+          className={`mt-12 bg-white p-8 rounded-lg shadow-sm animate-on-scroll animate-scroll-delay-600 ${calculatorVisible ? 'animated' : ''}`}
+        >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Finance Calculator</h2>
-          <p className="text-gray-600 mb-8 text-center">Estimate your monthly construction loan payments</p>
+          <p className="body-text text-gray-600 mb-8 text-center">Estimate your monthly construction loan payments</p>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Calculator Form */}
             <div className="space-y-6">
               <div>
-                <label htmlFor="loanAmount" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="loanAmount" className="block body-text font-medium text-gray-700 mb-2">
                   Loan Amount (£)
                 </label>
                 <input
@@ -144,42 +173,45 @@ export default function Finance() {
               </div>
 
               <div>
-                <label htmlFor="interestRate" className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block body-text font-medium text-gray-700 mb-2">
                   Interest Rate (%)
                 </label>
-                <input
-                  type="number"
-                  id="interestRate"
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00452a] focus:border-transparent"
-                  min="0.1"
-                  max="15"
-                  step="0.1"
-                />
+                <div className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 body-text text-gray-700">
+                  7% (Conister Bank)
+                </div>
               </div>
 
               <div>
-                <label htmlFor="loanTerm" className="block text-sm font-medium text-gray-700 mb-2">
-                  Loan Term (Years)
+                <label htmlFor="loanTerm" className="block body-text font-medium text-gray-700 mb-2">
+                  Loan Term (Years): <span className="font-bold text-[#00452a]">{loanTerm}</span>
                 </label>
-                <select
+                <input
+                  type="range"
                   id="loanTerm"
-                  value={loanTerm}
-                  onChange={(e) => setLoanTerm(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00452a] focus:border-transparent"
-                >
-                  <option value="10">10 Years</option>
-                  <option value="15">15 Years</option>
-                  <option value="20">20 Years</option>
-                  <option value="25">25 Years</option>
-                  <option value="30">30 Years</option>
-                </select>
+                  min="0"
+                  max="3"
+                  step="1"
+                  value={loanTerm === '1' ? '0' : loanTerm === '3' ? '1' : loanTerm === '5' ? '2' : '3'}
+                  onChange={(e) => {
+                    const values = ['1', '3', '5', '10'];
+                    setLoanTerm(values[parseInt(e.target.value)]);
+                  }}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, #00452a 0%, #00452a ${(parseInt(loanTerm === '1' ? '0' : loanTerm === '3' ? '1' : loanTerm === '5' ? '2' : '3') / 3) * 100}%, #e5e7eb ${(parseInt(loanTerm === '1' ? '0' : loanTerm === '3' ? '1' : loanTerm === '5' ? '2' : '3') / 3) * 100}%, #e5e7eb 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-xs body-text text-gray-600 mt-1">
+                  <span>1 Year</span>
+                  <span>3 Years</span>
+                  <span>5 Years</span>
+                  <span>10 Years</span>
+                </div>
               </div>
 
               <button
                 onClick={calculateLoan}
-                className="w-full bg-[#00452a] text-white py-3 px-6 font-medium uppercase hover:bg-opacity-90 transition-colors rounded-lg"
+                className="w-full bg-[#00452a] text-white py-3 px-6 body-text font-medium uppercase hover:bg-opacity-90 transition-colors rounded-lg"
               >
                 Calculate Payment
               </button>
@@ -192,27 +224,27 @@ export default function Finance() {
               {monthlyPayment ? (
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                    <span className="text-gray-600">Monthly Payment:</span>
+                    <span className="body-text text-gray-600">Monthly Payment:</span>
                     <span className="text-2xl font-bold text-[#00452a]">{formatCurrency(monthlyPayment)}</span>
                   </div>
                   
                   <div className="flex justify-between items-center pb-2">
-                    <span className="text-gray-600">Total Loan Amount:</span>
+                    <span className="body-text text-gray-600">Total Loan Amount:</span>
                     <span className="font-semibold">{formatCurrency(parseFloat(loanAmount))}</span>
                   </div>
                   
                   <div className="flex justify-between items-center pb-2">
-                    <span className="text-gray-600">Total Payments:</span>
+                    <span className="body-text text-gray-600">Total Payments:</span>
                     <span className="font-semibold">{(parseFloat(loanTerm) * 12).toLocaleString()}</span>
                   </div>
                   
                   <div className="flex justify-between items-center pb-2">
-                    <span className="text-gray-600">Total Amount Paid:</span>
+                    <span className="body-text text-gray-600">Total Amount Paid:</span>
                     <span className="font-semibold">{formatCurrency(monthlyPayment * parseFloat(loanTerm) * 12)}</span>
                   </div>
                   
                   <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                    <span className="text-gray-600">Total Interest:</span>
+                    <span className="body-text text-gray-600">Total Interest:</span>
                     <span className="font-semibold text-orange-600">
                       {formatCurrency((monthlyPayment * parseFloat(loanTerm) * 12) - parseFloat(loanAmount))}
                     </span>
@@ -231,10 +263,13 @@ export default function Finance() {
           </div>
         </div>
 
-        <div className="mt-8 bg-[#00452a] text-white p-8 rounded-lg">
+        <div 
+          ref={ctaRef}
+          className={`mt-8 bg-[#00452a] text-white p-8 rounded-lg animate-on-scroll animate-scroll-delay-700 ${ctaVisible ? 'animated' : ''}`}
+        >
           <h2 className="text-2xl font-semibold mb-4">Ready to Discuss Financing?</h2>
-          <p className="mb-6">Contact our finance team to explore the best options for your project.</p>
-          <button className="bg-white text-[#00452a] px-6 py-3 font-medium uppercase hover:bg-gray-100 transition-colors">
+          <p className="body-text mb-6">Contact our finance team to explore the best options for your project.</p>
+          <button className="bg-white text-[#00452a] px-6 -py-3 body-text font-medium uppercase hover:bg-gray-100 transition-colors">
             Get Quote
           </button>
         </div>

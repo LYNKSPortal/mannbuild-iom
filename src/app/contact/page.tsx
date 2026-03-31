@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function GetQuote() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,11 @@ export default function GetQuote() {
     timeline: '',
     message: ''
   });
+
+  const [titleRef, titleVisible] = useIntersectionObserver();
+  const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [whyChooseRef, whyChooseVisible] = useIntersectionObserver();
+  const [formRef, formVisible] = useIntersectionObserver();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -29,14 +35,25 @@ export default function GetQuote() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Get a Quote</h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <h1 
+          ref={titleRef}
+          className={`text-4xl font-bold text-gray-900 mb-8 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+        >
+          Get a Quote
+        </h1>
+        <p 
+          ref={descriptionRef}
+          className={`text-xl text-gray-600 mb-12 animate-on-scroll animate-scroll-delay-200 ${descriptionVisible ? 'animated' : ''}`}
+        >
           Ready to start your construction project? Fill out the form below and we'll provide you with a detailed quote for your project.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div>
+          <div 
+            ref={whyChooseRef}
+            className={`animate-on-scroll animate-scroll-delay-300 ${whyChooseVisible ? 'animated' : ''}`}
+          >
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose MannBuild?</h2>
             
             <div className="space-y-6">
@@ -46,7 +63,7 @@ export default function GetQuote() {
                 </svg>
                 <div>
                   <h3 className="font-semibold text-gray-900">20+ Years Experience</h3>
-                  <p className="text-gray-600">Proven track record of successful projects across residential and commercial sectors.</p>
+                  <p className="body-text text-gray-600">Proven track record of successful projects across residential and commercial sectors.</p>
                 </div>
               </div>
 
@@ -56,7 +73,7 @@ export default function GetQuote() {
                 </svg>
                 <div>
                   <h3 className="font-semibold text-gray-900">Free Quotes</h3>
-                  <p className="text-gray-600">No obligation quotes with detailed breakdowns of all costs and timelines.</p>
+                  <p className="body-text text-gray-600">No obligation quotes with detailed breakdowns of all costs and timelines.</p>
                 </div>
               </div>
 
@@ -66,7 +83,7 @@ export default function GetQuote() {
                 </svg>
                 <div>
                   <h3 className="font-semibold text-gray-900">Quick Response</h3>
-                  <p className="text-gray-600">We'll respond to your quote request within 24 hours with a detailed proposal.</p>
+                  <p className="body-text text-gray-600">We'll respond to your quote request within 24 hours with a detailed proposal.</p>
                 </div>
               </div>
 
@@ -76,19 +93,22 @@ export default function GetQuote() {
                 </svg>
                 <div>
                   <h3 className="font-semibold text-gray-900">Flexible Financing</h3>
-                  <p className="text-gray-600">Multiple financing options available to make your project affordable.</p>
+                  <p className="body-text text-gray-600">Multiple financing options available to make your project affordable.</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div 
+            ref={formRef}
+            className={`animate-on-scroll animate-scroll-delay-400 ${formVisible ? 'animated' : ''}`}
+          >
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Request Your Quote</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block body-text font-medium text-gray-700 mb-2">
                   Name *
                 </label>
                 <input
@@ -103,7 +123,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block body-text font-medium text-gray-700 mb-2">
                   Email *
                 </label>
                 <input
@@ -118,7 +138,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="phone" className="block body-text font-medium text-gray-700 mb-2">
                   Phone
                 </label>
                 <input
@@ -132,7 +152,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="projectType" className="block body-text font-medium text-gray-700 mb-2">
                   Project Type
                 </label>
                 <select
@@ -151,7 +171,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="budget" className="block body-text font-medium text-gray-700 mb-2">
                   Estimated Budget
                 </label>
                 <select
@@ -171,7 +191,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="timeline" className="block body-text font-medium text-gray-700 mb-2">
                   Project Timeline
                 </label>
                 <select
@@ -191,7 +211,7 @@ export default function GetQuote() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block body-text font-medium text-gray-700 mb-2">
                   Project Details *
                 </label>
                 <textarea
@@ -208,7 +228,7 @@ export default function GetQuote() {
 
               <button
                 type="submit"
-                className="w-full bg-[#00452a] text-white py-3 px-6 font-medium uppercase hover:bg-opacity-90 transition-colors rounded-lg"
+                className="w-full bg-[#00452a] text-white py-3 px-6 body-text font-medium uppercase hover:bg-opacity-90 transition-colors rounded-lg"
               >
                 Get My Free Quote
               </button>

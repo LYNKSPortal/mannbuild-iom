@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @theme inline {
@@ -23,4 +26,119 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Uniform fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Staggered animations */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animate-delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animate-delay-700 {
+  animation-delay: 0.7s;
+}
+
+.animate-delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: opacity;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+}
+
+/* Ensure smooth animations for lazy loading */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    transition: opacity 0.8s ease-out;
+  }
+}
+
+/* Staggered delays for scroll animations */
+.animate-scroll-delay-100 {
+  transition-delay: 0.1s;
+}
+
+.animate-scroll-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.animate-scroll-delay-300 {
+  transition-delay: 0.3s;
+}
+
+.animate-scroll-delay-400 {
+  transition-delay: 0.4s;
+}
+
+.animate-scroll-delay-500 {
+  transition-delay: 0.5s;
+}
+
+.animate-scroll-delay-600 {
+  transition-delay: 0.6s;
+}
+
+.animate-scroll-delay-700 {
+  transition-delay: 0.7s;
+}
+
+.animate-scroll-delay-800 {
+  transition-delay: 0.8s;
+}
+
+/* Responsive font sizes for body text and buttons */
+.body-text {
+  font-size: 18px; /* Desktop */
+}
+
+@media (max-width: 1024px) {
+  .body-text {
+    font-size: 16px; /* Tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .body-text {
+    font-size: 14px; /* Mobile */
+  }
 }

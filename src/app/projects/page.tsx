@@ -1,7 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function Projects() {
+  const [titleRef, titleVisible] = useIntersectionObserver();
+  const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [ctaRef, ctaVisible] = useIntersectionObserver();
+
   const projects = [
     {
       title: "Isle of Man Development",
@@ -67,17 +74,35 @@ export default function Projects() {
     }
   };
 
+  // Create refs for each project card
+  const projectRefs = projects.map(() => {
+    const [ref, visible] = useIntersectionObserver();
+    return { ref, visible };
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Our Projects</h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <h1 
+          ref={titleRef}
+          className={`text-4xl font-bold text-gray-900 mb-8 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+        >
+          Our Projects
+        </h1>
+        <p 
+          ref={descriptionRef}
+          className={`body-text text-gray-600 mb-12 animate-on-scroll animate-scroll-delay-200 ${descriptionVisible ? 'animated' : ''}`}
+        >
           A showcase of our completed and ongoing construction projects.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <div 
+              key={index} 
+              ref={projectRefs[index].ref}
+              className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-${(index + 3) * 100} ${projectRefs[index].visible ? 'animated' : ''}`}
+            >
               <div className="h-48 bg-gray-200 rounded-t-lg relative overflow-hidden">
                 {project.image ? (
                   <Image
@@ -101,17 +126,20 @@ export default function Projects() {
                     {project.status}
                   </span>
                 </div>
-                <p className="text-sm text-[#00452a] font-medium mb-2">{project.category}</p>
-                <p className="text-gray-600">{project.description}</p>
+                <p className="body-text text-[#00452a] font-medium mb-2">{project.category}</p>
+                <p className="body-text text-gray-600">{project.description}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div 
+          ref={ctaRef}
+          className={`mt-16 text-center animate-on-scroll animate-scroll-delay-1000 ${ctaVisible ? 'animated' : ''}`}
+        >
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Have a Project in Mind?</h2>
-          <p className="text-gray-600 mb-6">Let's discuss how we can bring your vision to life.</p>
-          <button className="bg-[#00452a] text-white px-8 py-3 font-medium uppercase hover:bg-opacity-90 transition-colors">
+          <p className="body-text text-gray-600 mb-6">Let's discuss how we can bring your vision to life.</p>
+          <button className="bg-[#00452a] text-white px-8 py-3 body-text font-medium uppercase hover:bg-opacity-90 transition-colors">
             Start Your Project
           </button>
         </div>

@@ -3,10 +3,18 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function Merch() {
   const router = useRouter();
   const [currentImage, setCurrentImage] = useState<{ [key: number]: number }>({});
+
+  const [titleRef, titleVisible] = useIntersectionObserver();
+  const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [beanieRef, beanieVisible] = useIntersectionObserver();
+  const [jumperRef, jumperVisible] = useIntersectionObserver();
+  const [tshirtRef, tshirtVisible] = useIntersectionObserver();
+  const [acquisitionRef, acquisitionVisible] = useIntersectionObserver();
   
   const nextImage = (productId: number, totalImages: number) => {
     setCurrentImage(prev => ({
@@ -36,23 +44,44 @@ export default function Merch() {
       name: "MannBuild Jumper",
       category: "Apparel",
       description: "High-quality jumper perfect for construction site work or casual wear. Professional appearance with MannBuild branding. Print on demand - no stock held.",
-      features: ["Sizes S-XXL", "80% cotton, 20% polyester", "Embroidered chest logo", "Dark green with white logo", "Print on demand", "No stock held"],
+      features: ["Sizes S-5XL", "80% cotton, 20% polyester", "Embroidered chest logo", "Dark green with white logo", "Print on demand", "No stock held"],
       available: true,
       images: ["/merch/Jumper.jpg", "/merch/Jumper-Back.jpg"]
+    },
+    {
+      id: 3,
+      name: "MannBuild White T-Shirt",
+      category: "Apparel",
+      description: "Classic white t-shirt featuring MannBuild branding on front and back. Perfect for casual wear or as part of your work uniform. Print on demand - no stock held.",
+      features: ["Sizes S-5XL", "100% premium cotton", "Front and back print", "White with green logo", "Print on demand", "No stock held"],
+      available: true,
+      images: ["/merch/white-top-front.jpg", "/merch/white-top-back.jpg"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">MannBuild Merchandise</h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <h1 
+          ref={titleRef}
+          className={`text-4xl font-bold text-gray-900 mb-8 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+        >
+          MannBuild Merchandise
+        </h1>
+        <p 
+          ref={descriptionRef}
+          className={`body-text text-gray-600 mb-12 animate-on-scroll animate-scroll-delay-200 ${descriptionVisible ? 'animated' : ''}`}
+        >
           Show your MannBuild pride with our quality merchandise. Perfect for team members and supporters.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {products.map((product, index) => (
+            <div 
+              key={product.id} 
+              ref={product.id === 1 ? beanieRef : product.id === 2 ? jumperRef : tshirtRef}
+              className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-${(index + 3) * 100} ${product.id === 1 ? (beanieVisible ? 'animated' : '') : product.id === 2 ? (jumperVisible ? 'animated' : '') : (tshirtVisible ? 'animated' : '')}`}
+            >
               <div className="relative w-full h-96 rounded-t-lg overflow-hidden bg-gray-100">
                 {product.images ? (
                   <>
@@ -124,13 +153,13 @@ export default function Merch() {
                   )}
                 </div>
                 
-                <p className="text-gray-600 mb-4">{product.description}</p>
+                <p className="body-text text-gray-600 mb-4">{product.description}</p>
                 
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-2">Features:</h4>
                   <ul className="space-y-1">
                     {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
+                      <li key={index} className="flex items-center body-text text-gray-600">
                         <svg className="w-4 h-4 text-[#00452a] mr-2" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -145,9 +174,12 @@ export default function Merch() {
         </div>
 
         {/* Acquisition Information */}
-        <div className="bg-[#00452a] text-white p-8 rounded-lg">
+        <div 
+          ref={acquisitionRef}
+          className={`bg-[#00452a] text-white p-8 rounded-lg animate-on-scroll animate-scroll-delay-500 ${acquisitionVisible ? 'animated' : ''}`}
+        >
           <h2 className="text-2xl font-semibold mb-4">Interested in Our Merchandise?</h2>
-          <p className="mb-6">
+          <p className="body-text mb-6">
             Our MannBuild merchandise is available for team members and interested parties. 
             To acquire any of our products, please get in touch with our team.
           </p>
@@ -160,19 +192,19 @@ export default function Merch() {
                   <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Contact our office directly</span>
+                  <span className="body-text">Contact our office directly</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Available for team members and partners</span>
+                  <span className="body-text">Available for team members and partners</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span>Bulk orders available for companies</span>
+                  <span className="body-text">Bulk orders available for companies</span>
                 </li>
               </ul>
             </div>
@@ -180,13 +212,13 @@ export default function Merch() {
             <div>
               <h3 className="text-lg font-semibold mb-3">Contact Information:</h3>
               <div className="space-y-2">
-                <p className="flex items-center">
+                <p className="flex items-center body-text">
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   07624 435430
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center body-text">
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -200,7 +232,7 @@ export default function Merch() {
           <div className="text-center">
             <button 
               onClick={() => router.push('/contact')}
-              className="bg-white text-[#00452a] px-8 py-3 font-medium uppercase hover:bg-gray-100 transition-colors rounded-lg"
+              className="bg-white text-[#00452a] px-8 py-3 body-text font-medium uppercase hover:bg-gray-100 transition-colors rounded-lg"
             >
               Contact Us About Merchandise
             </button>

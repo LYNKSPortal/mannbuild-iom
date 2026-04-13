@@ -256,7 +256,7 @@ function HeroSection() {
           <h1 
             id="hero-heading"
             ref={titleRef}
-            className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-on-scroll ${titleVisible ? 'animated' : ''}`}
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-on-scroll ${titleVisible ? 'animated' : ''}`}
           >
             Building Dreams Into Reality<br />With Precision You Can Trust
           </h1>

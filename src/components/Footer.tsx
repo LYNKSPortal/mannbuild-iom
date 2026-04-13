@@ -178,9 +178,9 @@ export default function Footer() {
           ref={copyrightRef}
           className={`border-t border-white/20 pt-6 animate-on-scroll animate-scroll-delay-500 ${copyrightVisible ? 'animated' : ''}`}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="body-text opacity-80">© 2026 MannBuild. All rights reserved.</p>
-            <div className="flex gap-4 mt-2 md:mt-0">
+            <div className="flex gap-4">
               <Image
                 src="/powered-by-lynks.png"
                 alt="Powered by Lynks"

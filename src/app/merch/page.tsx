@@ -55,7 +55,7 @@ export default function Merch() {
       description: "Classic white t-shirt featuring MannBuild branding on front and back. Perfect for casual wear or as part of your work uniform. Print on demand - no stock held.",
       features: ["Sizes S-5XL", "100% premium cotton", "Front and back print", "White with green logo", "Print on demand", "No stock held"],
       available: true,
-      images: ["/merch/white-top-front.jpg", "/merch/white-top-back.jpg"]
+      images: ["/merch/white-top-front-02.jpg", "/merch/white-top-back.jpg"]
     }
   ];
 
@@ -82,47 +82,54 @@ export default function Merch() {
               ref={product.id === 1 ? beanieRef : product.id === 2 ? jumperRef : tshirtRef}
               className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll animate-scroll-delay-${(index + 3) * 100} ${product.id === 1 ? (beanieVisible ? 'animated' : '') : product.id === 2 ? (jumperVisible ? 'animated' : '') : (tshirtVisible ? 'animated' : '')}`}
             >
-              <div className="relative w-full h-96 rounded-t-lg overflow-hidden bg-gray-100">
+              <div className="relative w-full aspect-square rounded-t-lg overflow-hidden bg-gray-100">
                 {product.images ? (
                   <>
-                    <Image
-                      src={product.images[currentImage[product.id] || 0]}
-                      alt={`${product.name} - Image ${currentImage[product.id] || 0 + 1}`}
-                      fill
-                      className="object-contain"
-                    />
+                    {/* Preload all images */}
+                    {product.images.map((img, idx) => (
+                      <Image
+                        key={idx}
+                        src={img}
+                        alt={`${product.name} - Image ${idx + 1}`}
+                        fill
+                        className={`object-cover transition-opacity duration-300 ease-in-out ${
+                          (currentImage[product.id] || 0) === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
+                        priority={idx === 0}
+                      />
+                    ))}
                     
                     {/* Slider Controls */}
                     <button
                       onClick={() => prevImage(product.id, product.images.length)}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-opacity"
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all duration-200 hover:scale-110 active:scale-95"
                       aria-label="Previous image"
                     >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </button>
                     
                     <button
                       onClick={() => nextImage(product.id, product.images.length)}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-opacity"
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all duration-200 hover:scale-110 active:scale-95"
                       aria-label="Next image"
                     >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                       </svg>
                     </button>
                     
                     {/* Image Indicators */}
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                       {product.images.map((_, index) => (
                         <button
                           key={index}
                           onClick={() => setCurrentImage(prev => ({ ...prev, [product.id]: index }))}
-                          className={`w-2 h-2 rounded-full transition-colors ${
+                          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                             (currentImage[product.id] || 0) === index 
-                              ? 'bg-white' 
-                              : 'bg-white bg-opacity-50'
+                              ? 'bg-white scale-125' 
+                              : 'bg-white bg-opacity-50 hover:bg-opacity-75'
                           }`}
                           aria-label={`Go to image ${index + 1}`}
                         />
@@ -134,7 +141,7 @@ export default function Merch() {
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                   />
                 )}
               </div>

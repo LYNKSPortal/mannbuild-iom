@@ -15,49 +15,42 @@ export default function Projects() {
       category: "Commercial",
       description: "Premium commercial development showcasing the beauty and infrastructure of the Isle of Man.",
       status: "Completed",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Isle-of-Man-Development.jpg"
     },
     {
       title: "Modern Office Complex",
       category: "Commercial",
       description: "State-of-the-art office building with sustainable design features and modern amenities.",
       status: "Completed",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Modern-Office-Complex.jpg"
     },
     {
       title: "Luxury Residential Development",
       category: "Residential",
       description: "High-end residential community featuring custom homes and premium amenities.",
       status: "In Progress",
-      image: "/isleofman-wideshot.jpg"
-    },
-    {
-      title: "Retail Shopping Center",
-      category: "Commercial",
-      description: "Mixed-use retail space with parking and modern storefront designs.",
-      status: "Completed",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Luxury-Residential-Development.jpg"
     },
     {
       title: "Home Renovation Project",
       category: "Residential",
       description: "Complete home renovation including kitchen, bathrooms, and exterior updates.",
       status: "Completed",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Home-Renovation-Project.jpg"
     },
     {
       title: "Warehouse Facility",
       category: "Commercial",
       description: "Large-scale warehouse with office space and loading facilities.",
       status: "Planning",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Warehouse-Facility.jpg"
     },
     {
       title: "Custom Beach House",
       category: "Residential",
       description: "Luxury beachfront property with ocean views and premium finishes.",
       status: "In Progress",
-      image: "/isleofman-wideshot.jpg"
+      image: "/projects/Custom-Beach-House.jpg"
     }
   ];
 
@@ -107,9 +100,10 @@ export default function Projects() {
                 {project.image ? (
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} construction project by MannBuild on Isle of Man`}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">

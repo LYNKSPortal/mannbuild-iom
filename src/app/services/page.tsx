@@ -14,23 +14,23 @@ export default function Services() {
   const services = [
     {
       title: "Residential Construction",
-      description: "Custom homes, renovations, and additions designed to fit your lifestyle and budget.",
-      features: ["Custom Home Building", "Home Renovations", "Room Additions", "Kitchen & Bath Remodeling"]
+      description: "Create a home that truly works for your lifestyle.",
+      features: ["Custom Home Builds", "Renovations & Extensions", "Kitchen & Bathroom Upgrades"]
     },
     {
       title: "Commercial Construction",
-      description: "Professional commercial spaces that enhance productivity and reflect your brand identity.",
-      features: ["Office Buildings", "Retail Spaces", "Warehouses", "Restaurant Construction"]
+      description: "Spaces designed to perform and impress.",
+      features: ["Offices & Retail Units", "Warehouses & Industrial Builds", "Restaurant Fit-Outs"]
     },
     {
       title: "Project Management",
-      description: "Comprehensive project oversight from planning to completion, ensuring timelines and budgets are met.",
-      features: ["Project Planning", "Budget Management", "Timeline Coordination", "Quality Assurance"]
+      description: "Stay stress-free while we handle everything.",
+      features: ["Planning & Scheduling", "Budget Control", "Quality Oversight"]
     },
     {
       title: "Design & Build",
-      description: "Integrated design and construction services for seamless project execution.",
-      features: ["Architectural Design", "Engineering Services", "Permitting", "Construction Management"]
+      description: "One team. One process. Total clarity.",
+      features: ["Architectural Design", "Engineering", "Permits & Compliance", "Full Construction Delivery"]
     }
   ];
 
@@ -44,13 +44,13 @@ export default function Services() {
           ref={titleRef}
           className={`text-4xl font-bold text-gray-900 mb-8 animate-on-scroll ${titleVisible ? 'animated' : ''}`}
         >
-          Our Services
+          Construction Services Built Around You
         </h1>
         <p 
           ref={descriptionRef}
           className={`body-text text-gray-600 mb-12 animate-on-scroll animate-scroll-delay-200 ${descriptionVisible ? 'animated' : ''}`}
         >
-          Comprehensive construction solutions tailored to your specific needs and requirements.
+          We provide end-to-end construction solutions tailored to your vision, budget, and timeline.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

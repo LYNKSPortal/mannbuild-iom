@@ -235,6 +235,7 @@ function WhyChooseSection() {
 function HeroSection() {
   const [titleRef, titleVisible] = useIntersectionObserver();
   const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [checkmarksRef, checkmarksVisible] = useIntersectionObserver();
   const [buttonsRef, buttonsVisible] = useIntersectionObserver();
 
   return (
@@ -265,7 +266,10 @@ function HeroSection() {
           >
             For over 20 years, MannBuild has delivered high-quality residential and commercial projects across the Isle of Man. From first plans to final handover, we manage every detail — so you don't have to.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 text-left sm:text-center">
+          <div 
+            ref={checkmarksRef}
+            className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 text-left sm:text-center animate-on-scroll animate-scroll-delay-300 ${checkmarksVisible ? 'animated' : ''}`}
+          >
             <div className="flex items-center gap-2 text-gray-100">
               <svg className="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -311,6 +315,7 @@ function HeroSection() {
 function CTASection() {
   const [titleRef, titleVisible] = useIntersectionObserver();
   const [descriptionRef, descriptionVisible] = useIntersectionObserver();
+  const [phoneRef, phoneVisible] = useIntersectionObserver();
   const [buttonRef, buttonVisible] = useIntersectionObserver();
 
   return (
@@ -329,7 +334,10 @@ function CTASection() {
         >
           Let's turn your ideas into reality. Get in touch today for a free consultation and no-obligation quote.
         </p>
-        <p className="text-2xl font-bold text-[#00452a] mb-6">
+        <p 
+          ref={phoneRef}
+          className={`text-2xl font-bold text-[#00452a] mb-6 animate-on-scroll animate-scroll-delay-300 ${phoneVisible ? 'animated' : ''}`}
+        >
           📞 07624 435430
         </p>
         <div 
